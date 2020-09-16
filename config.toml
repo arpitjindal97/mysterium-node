@@ -1,0 +1,10 @@
+[openvpn]
+
+[payment]
+  price-gb = 0.1
+  price-minute = 0.0001
+
+[shaper]
+  enabled = false
+
+[wireguard]

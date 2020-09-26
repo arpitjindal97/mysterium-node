@@ -14,11 +14,11 @@ You must have myst.db and keystore folder
 I prefer to build image using buildx so enable the experimental feature from docker desktop
 
 ```bash
-docker buildx build --no-cache --platform linux/arm64,linux/amd64 -t arpitjindal1997/myst-multiarch:node_hash . --push
+docker buildx build --no-cache --platform linux/arm64,linux/amd64 -t arpitjindal1997/myst-multiarch:hash . --push
 ```
 
 ### Running the image
 
 ```bash
-docker run --cap-add NET_ADMIN -p 4449:4449 -d --rm  arpitjindal1997/myst-multiarch:node_hash service --agreed-terms-and-conditions
+docker run --cap-add NET_ADMIN -p 4449:4449 -d --dns 94.140.14.14 --rm  arpitjindal1997/myst-multiarch:hash service --agreed-terms-and-conditions
 ```

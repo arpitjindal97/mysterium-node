@@ -1,0 +1,21 @@
+FROM mysteriumnetwork/myst:latest
+
+COPY db /var/lib/mysterium-node/db
+COPY keystore /var/lib/mysterium-node/keystore
+COPY config.toml /etc/mysterium-node/config.toml
+
+EXPOSE 4449
+
+RUN apk update && apk add openvpn unzip wget
+
+WORKDIR /nord
+
+RUN mkdir -p /nord && \
+    wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip 2> /dev/null && \
+    unzip ovpn.zip > /dev/null && \
+    rm ovpn.zip
+
+COPY run.sh /nord
+
+ENTRYPOINT []
+CMD ["bash","/nord/run.sh"]

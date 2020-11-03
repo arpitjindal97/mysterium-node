@@ -8,14 +8,18 @@ EXPOSE 4449
 
 RUN apk update && apk add openvpn unzip wget
 
-WORKDIR /nord
+WORKDIR /vpn
 
-RUN mkdir -p /nord && \
+# Download NordVPN config
+RUN mkdir -p /vpn/ovpn-config && \
     wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip 2> /dev/null && \
     unzip ovpn.zip > /dev/null && \
-    rm ovpn.zip
+    rm ovpn.zip && \
+    mv ovpn_tcp/* ovpn-config && \
+    mv ovpn_udp/* ovpn-config && \
+    rm -r ovpn_tcp ovpn_udp
 
-COPY run.sh /nord
+COPY run.sh /vpn
 
 ENTRYPOINT []
-CMD ["bash","/nord/run.sh"]
+CMD ["bash","/vpn/run.sh"]

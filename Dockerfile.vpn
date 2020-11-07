@@ -6,7 +6,7 @@ COPY config.toml /etc/mysterium-node/config.toml
 
 EXPOSE 4449
 
-RUN apk update && apk add openvpn unzip wget
+RUN apk update && apk add openvpn unzip wget strongswan openssl
 
 WORKDIR /vpn
 
@@ -18,7 +18,9 @@ RUN mkdir -p /vpn/ovpn-config && \
     mv ovpn_tcp/* ovpn-config && \
     mv ovpn_udp/* ovpn-config && \
     rm -r ovpn_tcp ovpn_udp
+RUN wget https://downloads.nordcdn.com/certificates/root.der -O /etc/ipsec.d/cacerts/NordVPN.der
 
+COPY ipsec.conf /etc/ipsec.conf
 COPY run.sh /vpn
 
 ENTRYPOINT []

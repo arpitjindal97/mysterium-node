@@ -2,7 +2,7 @@
 
 chmod 666 /dev/net/tun
 
-if [ -n $SERVER ];
+if [ -n "$SERVER" ];
 then
     echo "$USER : EAP \"$PASS\""  > /etc/ipsec.secrets​
     sed -i "s/USER/$USER/g" /etc/ipsec.conf

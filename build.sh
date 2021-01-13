@@ -10,6 +10,7 @@ git clone https://arpitjindal97:$GIT_PAT_TOKEN@github.com/arpitjindal97/secrets.
 
 mkdir db
 cp secrets/myst/myst.db db/
+cp secrets/myst/nodeui-pass nodeui-pass
 
 nodeIdentities=($(ls secrets/myst | grep 0x))
 

@@ -2,11 +2,11 @@
   api-key = "u2PJZzlogtwIdXUB9v7ZzTAqwT9wwkAFgSQJajF5"
 
 [openvpn]
-  price-gb = 0.1
-  price-minute = 0.0001
+  price-gb = 0.2
+  price-minute = 0.00005
 
 [payment]
-  price-gb = 0.1
+  price-gb = 0.2
   price-minute = 0.0001
 
 [shaper]
@@ -18,5 +18,5 @@
   version = "0.0.27"
 
 [wireguard]
-  price-gb = 0.1
-  price-minute = 0.0001
+  price-gb = 1.99
+  price-minute = 0.00005
